@@ -1,7 +1,7 @@
 # 设置 ssh
 
 ```
-ssh-keygen 
+ssh-keygen -t rsa -f github_id_rsa -C "xx@domain.com"
 
 ```
 
@@ -21,8 +21,8 @@ ssh -T git@github.com
 ## git 全局配置
 
 ```
-git config --global user.name "lois"
-git confgi --global user.email "loissiau@gmail.com"
+git config --global user.name "xx"
+git confgi --global user.email "xx@domain.com"
 ```
 
 参考地址：
