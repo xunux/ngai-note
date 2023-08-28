@@ -1,0 +1,12 @@
+﻿一、删除程序
+方法一：        
+    运行中输入 %LocalAppData%\Microsoft\OneDrive\ ，查看版本号。运行cmd 命令，输入 %LocalAppData%\Microsoft\OneDrive\版本号\OneDriveSetup /uninstall。这个命令可以卸载掉大多的OneDrive程序，剩余的可以自行删除    
+方法二：        
+    先在进程中关闭掉相应的onedrive进程，然后运行中输入 %LocalAppData%\Microsoft\OneDrive ，获取权限后删除这个文件夹
+
+二、删除导航栏
+    卸载OneDrive是不能清除导航栏里面的OneDrive，进入注册表，定位到 HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\ShellFolder，
+把右侧的 Attributes 属性的值 f080004d 修改为 f090004d，任务管理器中重启资源管理器后就生效了
+
+    如果需要删除另存为中的OneDrive，需要定位到注册表 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6} 项,然后删除定位到的 {018D5C66-4533-4307-9B53-224DE2ED1FE6} 项
+
