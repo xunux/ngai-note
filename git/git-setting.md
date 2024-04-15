@@ -51,6 +51,17 @@ vim ~/.gitconfig
 [http "https://github.com"]
 	proxy = socks5://127.0.0.1:10808
 
+
+git gui 启动报错
+
+vim ~/.gitconfig
+```
+[gui]
+
+spellingdictionary = none
+	
+```
+
 ```
 
 参考地址：
