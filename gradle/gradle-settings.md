@@ -59,8 +59,9 @@ allprojects {
 
 
 
+
 ## 参考文档
 
 1. [Initialization Scripts](https://docs.gradle.org/current/userguide/init_scripts.html)
 2. [gradle 配置指南](https://developer.aliyun.com/mvn/guide)
-2. [gradle中mavenLocal()失效问题](https://developer.aliyun.com/article/789070)
+3. [gradle中mavenLocal()失效问题](https://developer.aliyun.com/article/789070)
