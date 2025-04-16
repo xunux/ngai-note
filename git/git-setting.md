@@ -35,6 +35,9 @@ Host github.com
    User git
    IdentityFile ~/.ssh/github_id_rsa
    ProxyCommand connect -S 127.0.0.1:1080 %h %p
+   # mac
+   #ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
+   
 ```
 
 其中 127.0.0.1:1080 是 sock5 代理，若是 http 代理，则改为 `ProxyCommand connect -H 127.0.0.1:1081 %h %p`，其中 `127.0.0.1:1081` 是 http 代理
