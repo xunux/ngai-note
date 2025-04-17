@@ -1,5 +1,55 @@
 # Maven 进阶使用
 
+## maven 代理配置及报错处理
+
+### 代理配置
+```xml
+  <proxies>
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username></username>
+      <password></password>
+      <host>127.0.0.1</host>
+      <port>1081</port>
+      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+```
+
+### 报错处理
+
+maven 设置代理后报 ssl 证书认证错误，方法有 2 种
+
+#### 方法一：忽略 ssl 检查
+
+在 home 目录建立 .mavenrc 文件，然后在里面配置 MAVEN_OPTS 环境变量
+
+```shell
+MAVEN_OPTS="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true"
+```
+
+或在执行 mvn 命令时带上 `-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true`
+ 参数
+
+甚至可以在项目的根目录建立一个 `.mvn/maven.config` 文件，内容为：
+
+```
+-Dmaven.wagon.http.ssl.insecure=true
+-Dmaven.wagon.http.ssl.allowall=true
+-Dmaven.wagon.http.ssl.ignore.validity.dates=true
+```
+
+#### 方法二：https 请求经过 http 代理后相当于是中间人攻击，需要下载 http 代理的 https 根证书并安装到 java 里才行，操作如下
+
+```
+keytool -keystore ${JAVA_HOME}/jre/lib/security/cacerts -list
+keytool -keystore ${JAVA_HOME}/jre/lib/security/cacerts -importcert -alias YOUR_CA_ALIAS -file xxx-ca.cert
+```
+
+## maven 常用配置和命令
+
 1. maven 下载依赖包源码
 
 ```
