@@ -34,8 +34,12 @@ pip uninstall torch torchvision torchaudio -y
 ```
 
    2. 安装 gpu 版本
+
+   我的显卡是 GTX 1050TI的，pytorch 版本最高支持到 2.6，支持的 CUDA 版本是 12.6
+   来源：https://github.com/pytorch/pytorch/releases/tag/v2.8.0
+
 ```shell
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
 ```
    3. 验证安装
 ```shell
